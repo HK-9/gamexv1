@@ -1,0 +1,111 @@
+
+
+
+
+<div class="container mt-5 pt-5">
+    <h4 class="stext-301 cl2 fs-4 p-b-30 mt-5 mb-5"><i class="bi bi-geo-alt-fill mr-2"></i> MANAGE ADDRESS </h4>
+    {{#if address}}
+     {{#each address}}
+        <div id="{{this._id}}" class="card mb-2 mb-md-12 mt-4">
+                        <div class="card-header d-flex align-items-center">
+                            <h5 class="mtext-109 cl2 fs-6" id="test">{{this.fname}} {{this.lname}}</h5>
+                            {{!-- Radio button --}}
+                             <span class=" ml-3 mt-1"><div class="form-check">
+      <input type="radio" class="form-check-input" id="radio1" name="size" value="size" checked>
+      <label class="form-check-label" for="radio1"></label>
+    </div></span>
+                            <div class="position-relative ml-auto">
+                                <button onclick="deleteAddress('{{this._id}}')" class="btn btn-icon btn-sm" href="#" dthista-toggle="modal" data-target="#exampleModal">
+                                    <i class="bi bi-trash text-secondary"></i>
+                                </button>
+                            </div>
+    
+                            <div class="position-relative ml-3 ml-md-4">
+                                {{!-- <button class="btn btn-primary" onclick="editAddress('{{this._id}}')" ></button> --}}
+                                <button onclick="editAddress('{{this._id}}')"  class="btn btn-icon btn-sm" href="#" data-toggle="modal" data-target="#editModal">
+                                    <i class="bi bi-pencil-square text-secondary"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="flex-w flex-m m-r-150 m-tb-5">
+    
+    
+                        <div class="addressStrip-base-title">
+                            <button type="radio"></button>
+    
+                            <div class="addressStrip-base-addressName stext-111 cl2 p-t-2">
+                                Deliver to: <span class="ml-1 addressStrip-base-highlight stext-111 cl6 p-t-2">
+                                {{this.fname}} {{this.lname}} {{this.email}}
+                                {{this.phone}} {{this.city}} {{this.landmark}}
+                                </span>
+                                <div class="addressStrip-base-highlight stext-111 cl6 p-t-2">
+                                    {{this.Zip}}
+                                </div>
+                            </div>
+                            <div class="addressStrip-base-subText stext-111 cl6 p-t-2">
+                                    {{this.address}}
+                            </div>
+                        </div>
+                        <div class="flex-c-m ">
+                                    </div>
+                                    </div>
+     
+            </div>
+        </div>
+    
+    
+    {{/each}}
+{{else}}
+
+  <div class="card mb-2 mb-md-12 mt-4">
+                        <div class="d-flex justify-content-center card-header d-flex align-items-center" style="min-height: 200px;">
+                             <h1 class="stext-107 cl7 fs-5">Oops seems like you are not saved any addresses yet..!</h1>
+                        </div>
+                      
+     
+            </div>
+        
+                       <div class="d-flex justify-content-end"> <i class="bi bi-house-fill mr-1 cl10"></i> <a class="cl2 stext-107" href="/" target="_blank" >Return Home</a></div>
+{{/if}}
+</div>
+
+
+
+
+<script>
+    function deleteAddress(id){
+        console.log('hey there')
+            Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '##FF0000',
+            cancelButtonColor: '#000',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                  axios({
+                 method:'post',
+                url:'/delete-address',
+                    data:{
+                        addressId: id
+                    }
+                })
+                Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+                )
+                 const addressCard = document.getElementById(id)
+                addressCard.remove()
+            }
+            })
+                    
+
+
+
+      
+    }
+</script>

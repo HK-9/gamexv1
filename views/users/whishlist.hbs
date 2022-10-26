@@ -1,0 +1,308 @@
+		<script src="https://unpkg.com/axios@0.25.0/dist/axios.min.js"></script>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<!-- Shoping Cart -->
+	<form class="bg0 p-t-75 p-b-85 mt-5">
+		<div class="container min-vh-100">
+			<div class="row">
+				{{#if whislistData.products}}
+				<div class="col-lg-10 col-xl-12 m-lr-auto m-b-50">
+					<div class="m-l-25 m-r--38 m-lr-0-xl">
+						<div class="wrap-table-shopping-cart">
+							<table class="table-shopping-cart">
+								<tr class="table_head">
+									<th class="column-1">Product</th>
+									<th class="column-2"></th>
+									<th class="column-3"></th>
+									<th class="column-4">Price</th>
+									<th class="column-5">Remove</th>
+									<th class="column-6">Stock</th>
+									<th class="column-7"></th>
+									
+								 </tr>
+					{{!-- ----------------------------PORT----------------------------------------}}
+								
+								{{#each whislistData.products}}
+								
+								<tr class="table_row">
+									<td class="column-1">
+										<div class="how-itemcart1">
+											<img src="/multerimages/{{this.product.image.[2]}}" alt="IMG">
+										</div>
+									</td>
+									
+									<td class="column-2">{{this.product.title}}</td>
+									<td class="column-3"></td>
+									<td class="column-4">₹{{this.product.price}}</td>
+									</td>
+									<td class="column-5">
+										<button type="button" class="btn" onclick="deleteProduct('{{this.product._id}}')">
+											<i class="bi bi-trash"></i>
+										</button>
+									</td>
+									<td>
+                                    <span class="badge badge-pill badge-success">In Stock</span>
+                                </td>
+									<td "column-6">
+									</td>
+									<td class="column-7">
+								<div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5 ml-5" onclick="pushToCart('{{this.product._id}}')">
+									add to cart
+								</div>
+							</div>
+									</td>
+									<td id="{{this.product._id}}" class="column-5"> {{this.total}}</td>
+									
+									<h1></h1>
+								</tr>
+								{{/each}}
+
+							</table>
+						</div>
+
+						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+							
+								<a href="/">
+							<div  class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
+								Continue shopping
+							</div>
+							
+						</div>
+					</div>
+					</div>
+					{{else}}
+					
+  						<div class="card mb-2 mb-md-12 mt-4">
+							<div class="d-flex justify-content-center card-header d-flex align-items-center" style="min-height: 200px;">
+								<h1 class="stext-107 cl7 fs-5">Whishlist is empty..!</h1>
+							</div>
+           				 </div>
+       					</div>
+                       <div class="d-flex justify-content-end"> <i class="bi bi-bag-fill mr-2 cl2"></i> <a class="cl2 stext-107" href="/" target="_blank" >Continue shopping</a></div>
+					{{/if}}
+				
+			
+		</div>
+	</form>		
+	</div>
+	<!-- Footer -->
+	<footer class="bg3 p-t-75 p-b-32">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Categories
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Women
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Men
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Shoes
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Watches
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Help
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Track Order
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Returns 
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Shipping
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								FAQs
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						GET IN TOUCH
+					</h4>
+
+					<p class="stext-107 cl7 size-201">
+						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+					</p>
+
+					<div class="p-t-27">
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-pinterest-p"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Newsletter
+					</h4>
+
+					<form>
+						<div class="wrap-input1 w-full p-b-4">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+							<div class="focus-input1 trans-04"></div>
+						</div>
+
+						<div class="p-t-18">
+							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+								Subscribe
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="p-t-40">
+				<div class="flex-c-m flex-w p-b-18">
+					<a href="#" class="m-all-1">
+						<img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
+					</a>
+				</div>
+
+				<p class="stext-107 cl6 txt-center">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+				</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+	<script src="https://unpkg.com/axios@0.25.0/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script>
+
+		//======================= D E L E T E  P R O D U C T =======================
+
+		function deleteProduct(id){
+				axios({
+					method:'post',
+					url:'/remove-whishlist',
+					data:{
+						product: id
+					}	
+				})
+      .then(function (response) {
+        Swal.fire({
+			showConfirmButton: false,
+			icon:'success',
+          title: 'Item Removed',      
+        })
+		
+		setTimeout(function(){
+		 window.location.reload();
+		},1000);
+		
+      })
+      .catch(function (error) {
+        Swal.fire({
+          title: 'Operation failed',
+          text: error.data,
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+
+
+      });
+		}
+</script>
+<script>
+		//======================= P U S H   T O   C A R T =======================
+
+function pushToCart(id){
+	
+	axios({
+		method:'post',
+		url:'/push-to-cart',
+		data:{
+			productId:id
+		}
+	}).then(function (e) {
+		let isAdded = e.data
+		console.log( e)
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'bottom-start',
+  showConfirmButton: false,
+  timer: 1000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'success',
+  title: 'Added to Cart'
+})
+      });
+}
+</script>

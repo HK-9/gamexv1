@@ -1,0 +1,32 @@
+
+.addressStrip-base-title {
+    font-size: 14px;
+    max-width: 75%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.addressStrip-base-addressName {
+    width: 100%;
+    display: flex; 
+}
+.addressStrip-base-title span {
+    text-transform: capitalize;
+    max-width: 74%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.addressStrip-base-subText {
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+}
+.addressStrip-base-title span {
+    text-transform: capitalize;
+    max-width: 74%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

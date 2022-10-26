@@ -1,0 +1,143 @@
+
+<!-- End Header -->
+<head>
+    <base href="" target="">
+    <!-- Title -->
+    <title>Dashboard x| Graindashboard UI Kit</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="public/img/favicon.ico">
+
+
+    <!-- DEMO CHARTS -->
+    <link rel="stylesheet" href="public/demo/chartist.css">
+    <link rel="stylesheet" href="public/demo/chartist-plugin-tooltip.css">
+
+    <!-- Template -->
+    <link rel="stylesheet" href="public/graindashboard/css/graindashboard.css">
+
+</head>
+
+<main class="main">
+    <div class="content">
+        <div class="py-4 px-3 px-md-4">
+            <div class="card mb-3 mb-md-4">
+                <div class="card-body">
+          {{!-- <section class="m-1 p-1">
+          <style>
+            table, th, td { border: 1px solid rgb(139, 130, 137); border-collapse: collapse; color: black;}
+          </style>
+         
+            <table id="example" class="row-border" style="width:100%">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>User Email</th>
+                  <th>Phone</th>
+                  <th>Order id</th>
+                  <th>Payment</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Edit</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each orderData}}
+                <tr>
+                  <td></td>
+                  <td>{{this.email}}</td>
+                  <td>{{this.phone}}</td>
+                  <td>{{this._id}}</td>
+                  <td>{{this.paymentType}}</td>
+                  <td>{{formatString this.createdAt}}</td>
+                  <td>{{this.orderStatus}}</td>
+                  
+                  <td><a href="/admin/editOrderStatus/{{this._id}}"><i class="bi bi-pencil-square"></i></a></td>
+
+                </tr>
+                {{/each}}
+              </tbody>
+              
+            </table>
+        
+        </section> --}}
+
+        <div class="table-responsive-xl">
+                                <table class="table text-nowrap mb-0">
+                                    <thead>
+                                    <tr>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">#</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">Customer</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">Phone</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">Email</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">Amount</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">Date</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">Payment</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">Status</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-2">Edit</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{#each orderData}}
+                                    <tr>
+                                        <td class="py-3">{{plusOne @index}}</td>
+                                        <td class="py-3">
+                                            <div>{{this.fname}}</div>
+                                            <div class="text-muted"></div>
+                                        </td>
+                                        <td class="py-3">{{this.phone}}</td>
+                                        <td class="py-3">{{this.email}}</td>
+                                        <td class="py-3">₹ {{this.grandTotal}}</td>
+                                        <td class="py-3">{{formatString this.createdAt}}</td>
+                                        <td class="py-3">{{this.paymentType}}</td>
+
+
+                                        <td class="py-3">
+            
+                                            <span class="badge badge-pill badge-dark">{{this.orderStatus}}</span>
+                                          
+                                
+                                        </td>
+                                        <td class="py-3">
+                                            <div class="position-relative">
+                                                <a class=" pl-2 unfold-link media align-items-center text-nowrap" href="/admin/editOrderStatus/{{this._id}}">
+                                                            <i class="bi bi-pencil-square "></i>
+                                                            
+                                                        </a>
+
+                                                <ul id="dropDown16" class="unfold unfold-light unfold-top unfold-right position-absolute py-3 mt-1 unfold-css-animation unfold-hidden fadeOut" aria-labelledby="dropDown16Invoker" style="min-width: 150px; animation-duration: 300ms; right: 0px;">
+                                                    <li class="unfold-item">
+                                                        
+                                                    </li>
+                                                    <li class="unfold-item">
+                                                        <a class="unfold-link media align-items-center text-nowrap" href="#">
+                                                            <i class="gd-close unfold-item-icon mr-3"></i>
+                                                            <span class="media-body">Delete</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+        
+                                    </tbody>
+                                </table>
+                            </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</main>
+
+
+
+
+
+</script>
