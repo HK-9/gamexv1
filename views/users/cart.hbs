@@ -6,6 +6,7 @@
 					<div class="m-l-25 m-r--38 m-lr-0-xl">
 						<div class="wrap-table-shopping-cart">
 							<table class="table-shopping-cart">
+								{{#if cartData.products}}
 								<tr class="table_head">
 									<th class="column-1">Product</th>
 									<th class="column-2"></th>
@@ -16,6 +17,8 @@
 									
 								</tr>
 					{{!-- ----------------------------PORT----------------------------------------}}
+								
+								
 								{{#each cartData.products}}
 								<tr class="table_row">
 									<td class="column-1">
@@ -50,7 +53,15 @@
 									<h1></h1>
 								</tr>
 								{{/each}}
-
+								{{else}}
+								<tr class="table_head">
+							
+									<th class="column-3 w-100 d-flex justify-content-center">Your Cart is empty ..!</th>
+							
+			
+									
+								</tr>
+								{{/if}}
 							</table>
 						</div>
 						<a href="/">
@@ -250,32 +261,27 @@
 			<div class="p-t-40">
 				<div class="flex-c-m flex-w p-b-18">
 					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-01.png" alt="ICON-PAY">
+						<img src="/images/icons/icon-pay-01.png" alt="ICON-PAY">
 					</a>
 
 					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-02.png" alt="ICON-PAY">
+						<img src="/images/icons/icon-pay-02.png" alt="ICON-PAY">
 					</a>
 
 					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-03.png" alt="ICON-PAY">
+						<img src="/images/icons/icon-pay-03.png" alt="ICON-PAY">
 					</a>
 
 					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-04.png" alt="ICON-PAY">
+						<img src="/images/icons/icon-pay-04.png" alt="ICON-PAY">
 					</a>
 
 					<a href="#" class="m-all-1">
-						<img src="images/icons/icon-pay-05.png" alt="ICON-PAY">
+						<img src="/images/icons/icon-pay-05.png" alt="ICON-PAY">
 					</a>
 				</div>
 
-				<p class="stext-107 cl6 txt-center">
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
-				</p>
+				
 			</div>
 		</div>
 	</footer>

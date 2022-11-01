@@ -111,14 +111,13 @@ exports.loggedOut = (req,res,next) => {
 
 exports.protect = async (req, res, next) => {
   try {
-    let token1;
-    const jwtCookie = req.headers.cookie.split(";")[1];
+    let token1
+    console.log(req.cookies);
+    const jwtCookie = req.cookies.jwt;
     //1) get the token and check if it is there
-    if (
-      req.headers.cookie  
-    ) {
-      token1 = await req.headers.cookie.split("=")[1];
-      console.log('after spliting',token1);
+    if (jwtCookie) {
+      token1 = await jwtCookie;
+      // console.log('after spliting',token1);
     }
     if (!token1) {
       console.log(" error");
@@ -129,7 +128,7 @@ exports.protect = async (req, res, next) => {
     }
 
     //2)varification of token
-    console.log("msg", token1);
+    // console.log("msg", token1);
     const decoded = await jwt.verify(token1, process.env.JWT_SECRET);
     console.log(decoded);
 
@@ -159,7 +158,7 @@ const accountSID = process.env.TWILIO_ACCOUNT_SID;
 const client = require('twilio')(accountSID,authToken);
 
 exports.otpRoute = async (req,res,next)=>{
-  try {
+  // try {
     
     const user = await utils.getUser(req);  
     const phone = user.phone
@@ -173,13 +172,13 @@ exports.otpRoute = async (req,res,next)=>{
     })
   
     res.render('users/otp')
-    } catch (error) {
-      console.log(error);
-      res.redirect('/')
-  }
+  //   } catch (error) {
+  //     console.log(error);
+  //     res.redirect('/login')
+  // }
 }
 exports.otpVerify = async(req,res,next) =>{
-  try {
+  // try {
     
     const user = await utils.getUser(req);
     const phone = user.phone
@@ -204,8 +203,8 @@ exports.otpVerify = async(req,res,next) =>{
         message:'the otp entered is not valid '
       })
     })
-  } catch (error) {
-    console.log(error);
-    res.redirect('/')
-  }
+  // } catch (error) {
+  //   console.log(error);
+  //   res.redirect('/')
+  // }
 }

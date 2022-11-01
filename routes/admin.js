@@ -31,11 +31,11 @@ router.get('/sales-report',authController.adminProtect,adminController.salesRepo
 
 
 //AUTH-ROUTES
-router.post('/register',authController.adminProtect,authController.registerRoute)
-router.post('/login',authController.adminProtect,authController.loginRoute);
-router.get('/blockUser/:id',authController.adminProtect,adminController.blockUserRoute);
-router.get('/unblockUser/:id',authController.adminProtect,adminController.unblockUserRoute);
-router.get('/admin-logout',authController.adminProtect,authController.loggedOut)
+router.post('/register',authController.registerRoute)
+router.post('/login',authController.loginRoute);
+router.get('/blockUser/:id',adminController.blockUserRoute);
+router.get('/unblockUser/:id',adminController.unblockUserRoute);
+router.get('/admin-logout',authController.loggedOut)
 
 //ACTION ROUTES
 router.post('/uploadProduct',upload.array('image',4),productsController.uploadProductRoute);

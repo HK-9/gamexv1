@@ -56,7 +56,7 @@ exports.allUsersRoute = async (req, res, next) => {
 };
 //==================== O R D E R S   V I E W ========================
 
-exports.ordersRoute = async (req, res, next) => {
+exports.  ordersRoute = async (req, res, next) => {
   const orderData = await OrderModel.find().lean()
   let placed,shipped,delivered,cancelled;
   let UorderData = await OrderModel.find().lean()

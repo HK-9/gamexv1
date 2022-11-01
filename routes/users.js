@@ -31,6 +31,7 @@ router.get('/manage-address',authController.protect,myAccountController.manageAd
 router.get('/render-cod',authController.protect,orderController.renderCodRoute)
 // router.get('/render-stripe',orderController.renderStripeRoute)
 router.get('/test',userController.testRoute)
+router.get('/my-orders',orderController.myOrdersRoute)
 
 //========== U S E R   A U T H   C O N T R O L L E R S ===================
 
@@ -45,7 +46,7 @@ router.post('/addToCart/:id',authController.protect,cartController.uploadCartRou
 router.post('/increment',authController.protect,cartController.updateQty)
 router.post('/remove-product',authController.protect,cartController.deleteCart)
 router.post('/getProductGrandTotal',authController.protect,cartController.getProductGrandTotal)
-router.post('/data-notify',authController.protect,userController.cartDataNotifyRoute)
+router.post('/data-notify',userController.cartDataNotifyRoute)
 router.post('/add-to-whishlist',authController.protect,whishlistController.addWishlistRoute)
 router.post('/remove-whishlist',authController.protect,whishlistController.removeWishlistRoute)
 router.post('/push-to-cart',authController.protect,whishlistController.pushCartRoute)

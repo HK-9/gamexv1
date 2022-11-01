@@ -77,14 +77,13 @@ exports.renderCodRoute = async (req, res, next) => {
       .sort({ _id: -1 })
       .limit(1)
       .lean();
-    const orderId = orderData._id;
+      const orderId = orderData._id;
     const populatedOrderData = await OrderModel.findOne({
       userId: userId,
       _id: orderId,
     })
       .populate("products.product")
       .lean();
-    console.log("lastelement@", orderData, populatedOrderData, orderId);
     const priceOrder = await CartModel.findOne({ userId }).populate("products");
 
     res.render("users/codDelivery", {
@@ -98,3 +97,20 @@ exports.renderCodRoute = async (req, res, next) => {
     next(error);
   }
 };
+
+//==================================== M Y  O R D E R S  R E N D E R  R O U T E ====================================
+
+exports.myOrdersRoute = async (req,res,next)=> {
+  const logged = await utils.partialCheck(req);
+    const user = await utils.getUser(req);
+    const userId = user._id;
+    const orderData = await OrderModel.findOne({ userId: userId })
+
+   res.render('users/listOrders',{
+    layout: "tempLayout",
+    userLoggedIn: logged,
+    orderData,
+  
+   })
+
+}

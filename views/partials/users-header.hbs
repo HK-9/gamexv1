@@ -79,9 +79,13 @@
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
 							<center><i  class="bi bi-search"></i><p class="fs-10 mt-1" class="disabled-link"> Search</p>
 						</div>
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
-							<center><i class="bi bi-credit-card-fill"style="font-size: 23px"></i><p class="fs-10 mt-1"> Your Orders</p>
-						</div>
+
+						<a href="/my-orders">
+							<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 ">
+								<center><i class="bi bi-credit-card-fill"style="font-size: 23px"></i><p class="fs-10 mt-1"> Your Orders</p>
+							</div>
+						</a>
+
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" onload="dataNotify('{{cartData.userId}}')" id="cart-badge"  data-notify="2">
 							{{!-- onclick="dataNotify('{{cartData.userId}}') --}}
 							<i class="bi bi-cart-fill"></i><p class="fs-10 mt-1">Cart</p>

@@ -12,7 +12,6 @@ exports.whishlistRoute = async (req,res,next) =>{
         const user = await utils.getUser(req);
         const userId = user._id;
         const whislistData = await utils.getWhislistData(userId);
-        console.log('//////////////////////////////',whislistData)
         res.render('users/whishlist',{
             userLoggedIn:logged,
             userId,whislistData
@@ -59,11 +58,6 @@ exports.addWishlistRoute = async (req,res,next)=>{
         })
     
         }
-     
-        // const isAdded = await CartModel.findById(productId)
-        // if(isAdded){
-        //    flag == true
-        // }
         const hai=true
         
     
