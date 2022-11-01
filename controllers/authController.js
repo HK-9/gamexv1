@@ -115,8 +115,8 @@ exports.protect = async (req, res, next) => {
     console.log(req.cookies);
     const jwtCookie = req.cookies.jwt;
     //1) get the token and check if it is there
-    if (jwtCookie) {
-      token1 = await jwtCookie;
+    if (req.headers.cookie.split(";")[1]) {
+      token1 = await req.headers.cookie ;
       // console.log('after spliting',token1);
     }
     if (!token1) {
